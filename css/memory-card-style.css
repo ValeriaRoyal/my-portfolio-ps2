@@ -1,0 +1,126 @@
+/* ===== ESTILOS ESPECÍFICOS PARA A PÁGINA MEMORY-CARD ===== */
+.memory-page {
+    /* Sobrescreve os estilos de body para a página memory-card */
+    background: linear-gradient(to bottom, #666, #333);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    justify-content: flex-start;
+    /* Conteúdo inicia no topo */
+    overflow: auto;
+    /* Permite rolagem se necessário */
+}
+
+/* Cabeçalho com textos no topo: esquerda ("ps2") e direita ("Memory Card (PS2) / 1") */
+.memory-page .header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilos específicos para a página memory-card */
+.memory-page .header .text {
+    color: yellow;
+}
+
+/* Container central com os cartões de memória */
+.memory-page .memory-container {
+    margin-top: 60px;
+    /* Espaço para o cabeçalho */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* Estilo dos cartões de memória */
+.memory-page .memory-card {
+    width: 75px;
+    height: 100px;
+    /* background: black; */
+    border-radius: 10px;
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    /* Garante que a imagem não ultrapasse os limites do cartão */
+}
+
+/* Estilo para a imagem dentro do cartão */
+.memory-page .memory-card .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Garante que a imagem cubra todo o cartão sem distorção */
+    border-radius: 10px;
+}
+
+/* Destaque para o cartão ativo */
+.memory-page .memory-card.active {
+    box-shadow: 0px 0px 20px white;
+}
+
+/* Rótulo centralizado dentro do cartão */
+.memory-page .memory-card .label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: yellow;
+}
+
+/* Rodapé com os botões da página memory-card */
+/* .memory-page .footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 2;
+  } */
+
+/* .memory-page .footer button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+   */
+.memory-page .footer button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade para a página memory-card */
+@media (max-width: 600px) {
+    .memory-page .header {
+        font-size: 18px;
+    }
+
+    .memory-page .memory-card {
+        width: 75px;
+        height: 100px;
+    }
+
+    .memory-page .memory-card .label {
+        font-size: 14px;
+    }
+
+    .memory-page .footer button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}

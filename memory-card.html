@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Card (PS2)</title>
+  <!-- CSS global -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- CSS específico para uma determinada seção ou página -->
+  <link rel="stylesheet" href="/css/memory-card-style.css">
+</head>
+<body class="memory-page">
+  <!-- Cabeçalho com textos no topo -->
+  <div class="header">
+    <div class="header-left">PS2</div>
+    <div class="text">Memory Card (PS2) / 1</div>
+  </div>
+
+  <!-- Container central com os cartões de memória -->
+  <div class="memory-container">
+    <!-- Cartão de memória com imagem -->
+    <div class="memory-card active">
+      <img src="assets/imagens/memorycard.svg" alt="Memory Card 1" class="card-image">
+      <!-- <div class="label">1</div> -->
+    </div>
+    <!-- Segundo cartão de memória com imagem -->
+    <div class="memory-card">
+      <img src="assets/imagens/memorycard.svg" alt="Memory Card 2" class="card-image">
+      <!-- <div class="label">2</div> -->
+    </div>
+  </div>
+  <div class="options">
+    <button class="btn" disabled>
+      <img src="assets/imagens/x.svg" alt="Icon" class="icon" />Confirmar
+    </button>
+    <button class="btn" disabled>
+      <img src="assets/imagens/circle.svg" alt="Icon" class="icon" />Voltar
+    </button>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+</html>
