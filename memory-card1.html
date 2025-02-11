@@ -12,24 +12,19 @@
   <body class="memory-page">
     <!-- Cabeçalho com textos no topo -->
     <div class="header">
-      <div class="header-left">PS2</div>
-      <div class="text">Memory Card (PS2) / 1</div>
-    </div>
-    <!-- Container central com os cartões de memória -->
-    <div class="memory-container">
-      <!-- Cartão de memória com imagem -->
-      <div id="memoryCard1" class="memory-card active">
+      <div class="header-left">
         <img
           src="assets/imagens/memorycard.svg"
           alt="Memory Card 1"
           class="card-image"
         />
+        Memory Card (PS2) / 1
       </div>
-      <!-- Segundo cartão de memória com imagem -->
-      <!-- <div id="memoryCard2" class="memory-card">
-      <img src="assets/imagens/memorycard.svg" alt="Memory Card 2" class="card-image">
-    </div> -->
+      <div class="text"></div>
     </div>
+
+    <div class="saves-container" id="savesContainer"></div>
+
     <div class="options">
       <button id="confirmButton" class="btn">
         <img src="/assets/imagens/x.svg" alt="Entrar" class="icon" />
@@ -39,12 +34,12 @@
       <button id="backButton" class="btn">
         <img
           src="/assets/imagens/circle.svg"
-          alt="Voltar a página"
+          alt="Voltar a pagina"
           class="icon"
         />
         Voltar
       </button>
     </div>
-    <script src="/js/scriptMemoryCard.js"></script>
+    <script src="/js/scriptMemoryCard1.js"></script>
   </body>
 </html>

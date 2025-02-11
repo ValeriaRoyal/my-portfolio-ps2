@@ -29,6 +29,13 @@
     color: yellow;
 }
 
+.header-left img {
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção */
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    vertical-align: middle; /* Alinha melhor com o texto */
+  }
+
 /* Container central com os cartões de memória */
 .memory-page .memory-container {
     margin-top: 60px;
@@ -77,6 +84,23 @@
     color: yellow;
 }
 
+/* Efeito de transição para entrar na próxima tela */
+.memory-page.enter {
+    animation: fadeOut 0.5s forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+  
+
 /* Rodapé com os botões da página memory-card */
 /* .memory-page .footer {
     position: fixed;
@@ -104,6 +128,43 @@
     background: rgba(255, 255, 255, 0.2);
 }
 
+.saves-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 35px;
+    width: 80%;
+    max-width: 600px;
+    margin: 90px auto;
+    justify-content: center;
+  }
+  
+  .save-box {
+    width: 100px;
+    height: 100px;
+    /* background-color: rgba(0, 0, 255, 0.5); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    /* border: 2px solid white; */
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden; /* Garante que a imagem não ultrapasse */
+  }
+  
+  .save-box:hover,
+  .save-box.active {
+    box-shadow: 0px 0px 20px white;
+    transform: scale(1.1);
+  }
+  
+  .save-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain; /* Ajusta a imagem dentro do quadrado */
+  }
+  
+
 /* Responsividade para a página memory-card */
 @media (max-width: 600px) {
     .memory-page .header {
@@ -124,3 +185,5 @@
         padding: 8px 16px;
     }
 }
+  
+  

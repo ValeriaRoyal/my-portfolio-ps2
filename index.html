@@ -8,20 +8,28 @@
   </head>
   <body>
     <div class="container">
-        <canvas id="backgroundCanvas"></canvas>
-        <div class="menu">
-          <p id="option1" class="menu-item">Browser</p>
-          <p id="option2" class="menu-item">System Configuration</p>
-        </div>
+      <canvas id="backgroundCanvas"></canvas>
+      <div class="menu">
+        <p id="option1" class="menu-item" tabindex="0">Browser</p>
+        <p id="option2" class="menu-item" tabindex="0" aria-disabled="true">System Configuration</p>
       </div>
-      <div class="options">
-        <button class="btn" disabled>
-          <img src="/assets/imagens/x.svg" alt="Icon" class="icon" />Confirmar
-        </button>
-        <button class="btn" disabled>
-          <img src="/assets/imagens/polygon.svg" alt="Icon" class="icon" />Versão
-        </button>
-      </div>
-      <script src="js/script.js"></script>
+    </div>
+    <div class="options">
+      <button id="confirmButton" class="btn">
+        <img src="/assets/imagens/x.svg" alt="Entrar" class="icon" />
+        Confirmar
+      </button>
+
+      <button id="version" class="btn" aria-disabled="true" disabled>
+        <img
+          src="/assets/imagens/polygon.svg"
+          alt="Versão do sistema"
+          class="icon"
+        />
+        Versão
+      </button>
+    </div>
+    <div id="fadeEffect" class="fade-out"></div>
+    <script src="js/script.js"></script>
   </body>
 </html>

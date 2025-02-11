@@ -32,7 +32,7 @@ if (canvas) { // Executa somente se o canvas existir na página
   // Função para desenhar e animar as orbes
   function animate() {
     // Limpa a tela com uma leve transparência para efeito de rastro
-    ctx.fillStyle = 'rgba(0, 0, 51, 0.1)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     orbs.forEach((orb) => {
@@ -56,63 +56,64 @@ if (canvas) { // Executa somente se o canvas existir na página
 
   animate();
 }
-
 /*********************************
  * Código para o Menu
  *********************************/
-document.addEventListener('DOMContentLoaded', () => {
-  const menuItems = document.querySelectorAll('.menu-item');
-  if (menuItems.length > 0) { // Executa somente se houver itens de menu
-    let activeIndex = 0; // Índice da opção ativa
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeEffect = document.getElementById("fadeEffect");
+  const menuItems = document.querySelectorAll(".menu-item");
+  const confirmButton = document.getElementById("confirmButton");
+  const versionButton = document.getElementById("version");
 
-    // Adiciona a classe "active" ao item inicial
-    menuItems[activeIndex].classList.add('active');
+  let activeIndex = 0;
 
-    // Lógica para alternar usando o teclado
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowDown') {
-        menuItems[activeIndex].classList.remove('active');
-        activeIndex = (activeIndex + 1) % menuItems.length;
-        menuItems[activeIndex].classList.add('active');
-      } else if (event.key === 'ArrowUp') {
-        menuItems[activeIndex].classList.remove('active');
-        activeIndex = (activeIndex - 1 + menuItems.length) % menuItems.length;
-        menuItems[activeIndex].classList.add('active');
-      }
-    });
+  const pages = {
+    option1: "memory-card.html",  
+    option2: "version.html"       
+  };
 
-    // Lógica para alternar usando o mouse
+  function navigateToPage(url) {
+    fadeEffect.classList.add("active");
+    setTimeout(() => window.location.href = url, 800);
+  }
+
+  function updateMenuSelection() {
     menuItems.forEach((item, index) => {
-      item.addEventListener('mouseover', () => {
-        menuItems[activeIndex].classList.remove('active');
-        activeIndex = index;
-        item.classList.add('active');
-      });
-    });
-  }
-});
-
-/*********************************
- * Código para os Memory Cards
- *********************************/
-const cards = document.querySelectorAll('.memory-card');
-if (cards.length > 0) { // Executa somente se houver cartões de memória na página
-  let currentIndex = 0;
-
-  function updateSelection() {
-    cards.forEach((card, index) => {
-      card.classList.toggle('active', index === currentIndex);
+      item.classList.toggle("active", index === activeIndex);
     });
   }
 
-  // Navegação com as setas do teclado
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight') {
-      currentIndex = (currentIndex + 1) % cards.length;
-      updateSelection();
-    } else if (event.key === 'ArrowLeft') {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      updateSelection();
+  function handleNavigation(item) {
+    const targetPage = pages[item.id];
+    if (targetPage) navigateToPage(targetPage);
+  }
+
+  menuItems.forEach((item, index) => {
+    item.addEventListener("mouseenter", () => {
+      activeIndex = index;
+      updateMenuSelection();
+    });
+
+    item.addEventListener("click", () => handleNavigation(item));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown") {
+      activeIndex = (activeIndex + 1) % menuItems.length;
+      updateMenuSelection();
+    } else if (event.key === "ArrowUp") {
+      activeIndex = (activeIndex - 1 + menuItems.length) % menuItems.length;
+      updateMenuSelection();
+    } else if (event.key === "Enter") {
+      handleNavigation(menuItems[activeIndex]);
     }
   });
-}
+
+  [confirmButton, versionButton].forEach(button => {
+    if (button) {
+      button.addEventListener("click", () => handleNavigation(menuItems[activeIndex]));
+    }
+  });
+
+  updateMenuSelection();
+});
