@@ -1,17 +1,3 @@
-/*********************************
- * Internacionalização (i18n)
- *********************************/
-const messages = {
-  en: {
-    headerDefault: "Memory Card (PS2) / 1",
-    backButton: "Back",
-  },
-  pt: {
-    headerDefault: "Memory Card (PS2) / 1",
-    backButton: "Voltar",
-  }
-};
-
 const lang = navigator.language.startsWith("pt") ? "pt" : "en"; // Detecta o idioma
 
 function updateText() {
