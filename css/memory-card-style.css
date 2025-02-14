@@ -35,13 +35,31 @@
 
 /* Container central com os cartões de memória */
 .memory-page .memory-container {
-  margin-top: 60px;
   flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 35px;
+    width: 80%;
+    max-width: 600px;
+    margin: 130px auto;
+    justify-items: center; /* Centraliza os itens horizontalmente */
+    align-items: center;   /* Centraliza os itens verticalmente */
+}
+
+.memory-page .memory-container .img-wrapper {
+  width: 100px;       /* Defina o tamanho desejado */
+  height: 100px;      /* Defina o tamanho desejado */
+  overflow: hidden;   /* Garante que a imagem não ultrapasse os limites */
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Imagens retangulares ou de formatos variados */
+.memory-page .memory-container .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Faz com que a imagem preencha o container sem distorcer */
 }
 
 /* Estilo dos cartões de memória */
@@ -54,21 +72,25 @@
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 /* Estilo de foco quando o mouse passa sobre o cartão ou quando a navegação por teclado é realizada */
 .memory-page .memory-card.focused {
   box-shadow: 0px 0px 20px white;
-  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do cartão */
+  transform: scale(1.05);
+  /* Aumenta ligeiramente o tamanho do cartão */
 }
 
 /* Estilo de hover do cartão */
 .memory-page .memory-card:hover {
   box-shadow: 0px 0px 20px white;
-  transform: scale(1.05); /* Aumenta o tamanho do cartão no hover */
+  transform: scale(1.05);
+  /* Aumenta o tamanho do cartão no hover */
 }
 
 /* Para garantir que o hover e o foco não sejam sobrepostos de maneira conflitante */
 .memory-page .memory-card.focused:hover {
-  transform: scale(1.05); /* Pode ajustar o tamanho conforme necessário */
+  transform: scale(1.05);
+  /* Pode ajustar o tamanho conforme necessário */
   box-shadow: 0px 0px 20px white;
 }
 
@@ -87,12 +109,12 @@
 
 /* Rótulo centralizado dentro do cartão */
 .memory-page .memory-card .label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
-    color: yellow;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: yellow;
 }
 
 /* Rótulo centralizado dentro do cartão */
@@ -109,6 +131,7 @@
 .memory-page.enter {
   animation: fadeOut 0.5s forwards;
 }
+
 /* Efeito de transição para entrar na próxima tela */
 .memory-page.enter {
   animation: fadeOut 0.5s forwards;
@@ -116,12 +139,13 @@
 
 @keyframes fadeOut {
   0% {
-      opacity: 1;
-      transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
   }
+
   100% {
-      opacity: 0;
-      transform: scale(0.95);
+    opacity: 0;
+    transform: scale(0.95);
   }
 }
 
@@ -146,7 +170,8 @@
   /* border: 2px solid white; */
   cursor: pointer;
   transition: 0.3s;
-  overflow: hidden; /* Garante que a imagem não ultrapasse */
+  overflow: hidden;
+  /* Garante que a imagem não ultrapasse */
 }
 
 .save-box:hover,
@@ -158,22 +183,38 @@
 .save-image {
   width: 80%;
   height: 80%;
-  object-fit: contain; /* Ajusta a imagem dentro do quadrado */
+  object-fit: contain;
+  /* Ajusta a imagem dentro do quadrado */
 }
 
 
 /* Responsividade para a página memory-card */
 @media (max-width: 600px) {
   .memory-page .header {
-      font-size: 18px;
+    font-size: 16px;
   }
 
   .memory-page .memory-card {
-      width: 75px;
-      height: 100px;
+    width: 75px;
+    height: 100px;
   }
 
   .memory-page .memory-card .label {
-      font-size: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .memory-page .header {
+    font-size: 16px;
+  }
+
+  .memory-page .memory-card {
+    width: 75px;
+    height: 100px;
+  }
+
+  .memory-page .memory-card .label {
+    font-size: 14px;
   }
 }

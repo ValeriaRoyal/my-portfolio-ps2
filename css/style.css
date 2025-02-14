@@ -98,7 +98,7 @@ button[disabled] {
 }
 
 /* Efeito de transição degradê ao mudar de página */
-.fade-out {
+/* .fade-out {
   position: fixed;
   top: 0;
   left: 0;
@@ -113,7 +113,7 @@ button[disabled] {
 
 .fade-out.active {
   opacity: 1;
-}
+} */
 
 /* 🔹 Responsividade para Tablets e Celulares */
 @media (max-width: 768px) {

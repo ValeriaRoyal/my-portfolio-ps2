@@ -14,8 +14,8 @@ const MemoryCardApp = {
     // Definindo os cartões com suas informações (nome e link)
     this.cards = [
       { name: "Memory Card 1", link: "memory-card1.html", image: "assets/imagens/memorycard.svg" },
-      { name: "Memory Card 2", link: "memory-card2.html", image: "assets/imagens/memorycard.svg" },
-      { name: "Memory Card 3", link: "memory-card3.html", image: "assets/imagens/memorycard.svg" }
+      // { name: "Memory Card 2", link: "memory-card2.html", image: "assets/imagens/memorycard.svg" },
+      // { name: "CD", link: "cd.html", image: "assets/imagens/cd_ps2.png" },
     ];
 
     // Gerando os cartões dinamicamente
