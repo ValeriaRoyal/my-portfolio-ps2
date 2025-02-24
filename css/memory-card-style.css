@@ -1,14 +1,21 @@
-/* ===== ESTILOS ESPECÍFICOS PARA A PÁGINA MEMORY-CARD ===== */
+:root {
+  --bg-gradient-start: #666;
+  --bg-gradient-end: #333;
+  --text-color: yellow;
+  --card-shadow: 0px 0px 20px white;
+  --font-primary: Arial, sans-serif;
+}
+
 .memory-page {
-  background: linear-gradient(to bottom, #666, #333);
-  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-family: var(--font-primary);
   min-height: 100vh;
-  position: relative;
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: auto;
 }
 
-/* Cabeçalho com textos no topo: esquerda ("ps2") e direita ("Memory Card (PS2) / 1") */
 .memory-page .header {
   position: absolute;
   top: 10px;
@@ -21,9 +28,22 @@
   font-weight: bold;
 }
 
-/* Estilos específicos para a página memory-card */
 .memory-page .header .text {
-  color: yellow;
+  color: var(--text-color);
+}
+
+.memory-page .memory-card {
+  width: 75px;
+  height: 100px;
+  border-radius: 10px;
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memory-page .memory-card.active {
+  box-shadow: var(--card-shadow);
 }
 
 .header-left img {
@@ -42,8 +62,23 @@
     width: 80%;
     max-width: 600px;
     margin: 130px auto;
-    justify-items: center; /* Centraliza os itens horizontalmente */
-    align-items: center;   /* Centraliza os itens verticalmente */
+    justify-items: center;
+    align-items: center;
+}
+
+.memory-page .memory-card:hover,
+.memory-page .memory-card:focus {
+  box-shadow: var(--card-shadow);
+  transform: scale(1.05);
+}
+
+.memory-page .memory-card .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: var(--text-color);
 }
 
 .memory-page .memory-container .img-wrapper {
@@ -62,36 +97,11 @@
   object-fit: cover;  /* Faz com que a imagem preencha o container sem distorcer */
 }
 
-/* Estilo dos cartões de memória */
-.memory-page .memory-card {
-  width: 75px;
-  height: 100px;
-  border-radius: 10px;
-  position: relative;
-  margin: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Estilo de foco quando o mouse passa sobre o cartão ou quando a navegação por teclado é realizada */
-.memory-page .memory-card.focused {
-  box-shadow: 0px 0px 20px white;
-  transform: scale(1.05);
-  /* Aumenta ligeiramente o tamanho do cartão */
-}
-
-/* Estilo de hover do cartão */
-.memory-page .memory-card:hover {
-  box-shadow: 0px 0px 20px white;
-  transform: scale(1.05);
-  /* Aumenta o tamanho do cartão no hover */
-}
-
 /* Para garantir que o hover e o foco não sejam sobrepostos de maneira conflitante */
 .memory-page .memory-card.focused:hover {
   transform: scale(1.05);
   /* Pode ajustar o tamanho conforme necessário */
-  box-shadow: 0px 0px 20px white;
+  box-shadow: var(--card-shadow);
 }
 
 /* Estilo para a imagem dentro do cartão */
@@ -102,11 +112,6 @@
   border-radius: 10px;
 }
 
-/* Destaque para o cartão ativo */
-.memory-page .memory-card.active {
-  box-shadow: 0px 0px 20px white;
-}
-
 /* Rótulo centralizado dentro do cartão */
 .memory-page .memory-card .label {
   position: absolute;
@@ -114,17 +119,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 18px;
-  color: yellow;
-}
-
-/* Rótulo centralizado dentro do cartão */
-.memory-page .memory-card .label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 18px;
-  color: yellow;
+  color: var(--text-color);
 }
 
 /* Efeito de transição para entrar na próxima tela */
