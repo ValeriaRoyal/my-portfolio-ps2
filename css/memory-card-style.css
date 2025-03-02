@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 24px;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -53,7 +53,6 @@
   vertical-align: middle;
 }
 
-/* Container central com os cartões de memória */
 .memory-page .memory-container {
   flex: 1;
     display: grid;
@@ -77,30 +76,28 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 18px;
+  font-size: 1rem;
   color: var(--text-color);
 }
 
 .memory-page .memory-container .img-wrapper {
-  width: 100px;       /* Defina o tamanho desejado */
-  height: 100px;      /* Defina o tamanho desejado */
-  overflow: hidden;   /* Garante que a imagem não ultrapasse os limites */
+  width: 100px;       
+  height: 100px;      
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Imagens retangulares ou de formatos variados */
 .memory-page .memory-container .img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* Faz com que a imagem preencha o container sem distorcer */
+  object-fit: cover;  
 }
 
 /* Para garantir que o hover e o foco não sejam sobrepostos de maneira conflitante */
 .memory-page .memory-card.focused:hover {
   transform: scale(1.05);
-  /* Pode ajustar o tamanho conforme necessário */
   box-shadow: var(--card-shadow);
 }
 
@@ -118,7 +115,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 18px;
+  font-size: 1rem;
   color: var(--text-color);
 }
 
@@ -152,6 +149,7 @@
   max-width: 600px;
   margin: 130px auto;
   justify-content: center;
+  place-items: center;
 }
 
 .save-box {
@@ -186,7 +184,7 @@
 /* Responsividade para a página memory-card */
 @media (max-width: 600px) {
   .memory-page .header {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .memory-page .memory-card {
@@ -195,13 +193,17 @@
   }
 
   .memory-page .memory-card .label {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .memory-page .header {
-    font-size: 16px;
+    font-size: 0.8rem;
+  }
+
+  .header-left img{
+    width: 30px;
   }
 
   .memory-page .memory-card {
@@ -209,7 +211,12 @@
     height: 100px;
   }
 
+  .save-image{
+    width: 50%;
+    height: 50%;
+  }
+
   .memory-page .memory-card .label {
-    font-size: 14px;
+    font-size: 0.5rem;
   }
 }
